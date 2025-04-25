@@ -26,10 +26,7 @@ public class User_01_Register_Login {
     public void TC_02_Login(){
 
     }
-    @Test
-    public void TC_03_Login(){
 
-    }
     @AfterClass
     public void afterClass(){
         driver.quit();
