@@ -5,7 +5,7 @@
     <test name="Run on Chrome">
         <classes>
 
-            <class name="com.nopcomerce.user.User_01_Lv3_BasePage_Inheritant" />
+            <class name="com.nopcomerce.user.User_01_Lv4_POM" />
         </classes>
     </test>
 

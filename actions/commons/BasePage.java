@@ -292,6 +292,10 @@ public class BasePage {
                 .until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
     }
 
+    public void waitForElementSelected(WebDriver driver, String locator){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
+    }
+
 
 
 
