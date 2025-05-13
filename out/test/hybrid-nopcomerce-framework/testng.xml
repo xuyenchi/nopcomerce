@@ -4,7 +4,8 @@
 
     <test name="Run on Chrome">
         <classes>
-            <class name="com.nopcomerce.user.User_01_Register_Login" />
+
+            <class name="com.nopcomerce.user.User_01_Lv3_BasePage_Inheritant" />
         </classes>
     </test>
 
