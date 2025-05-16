@@ -2,6 +2,7 @@ package pageObjects;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
+import pageUIs.AddressBookPageUI;
 import pageUIs.MyAccountUI;
 
 public class MyAccountObject extends BasePage {
@@ -20,8 +21,15 @@ public class MyAccountObject extends BasePage {
     }
 
     public void clickAccountLink() {
+        waitForElementClickable(driver, MyAccountUI.ACCOUNT_LINK);
+        clickToElement(driver, MyAccountUI.ACCOUNT_LINK);
     }
 
-    public void clickMyAccountLink() {
+    public MyAccountObject openMyAccountPage() {
+        waitForElementClickable(driver, MyAccountUI.MYACCOUNT_LINK);
+        clickToElement(driver, MyAccountUI.MYACCOUNT_LINK);
+        return PageGenerator.getMyAccountPage(driver);
     }
+
+
 }

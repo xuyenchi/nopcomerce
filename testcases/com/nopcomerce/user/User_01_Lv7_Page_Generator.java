@@ -2,18 +2,17 @@ package com.nopcomerce.user;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
 import pageObjects.MyAccountObject;
+import pageObjects.PageGenerator;
 import pageObjects.RegisterPageObject;
 
-import java.time.Duration;
-
-public class User_01_Lv4_POM extends BaseTest {
+public class User_01_Lv7_Page_Generator extends BaseTest {
     WebDriver driver;
     private HomePageObject homePageObject;
     private RegisterPageObject registerPageObject;
@@ -25,34 +24,28 @@ public class User_01_Lv4_POM extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
-
-        driver = new EdgeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
-        //driver.get("https://demo.nopcommerce.com/");
-        driver.get("http://live.techpanda.org/");
-        homePageObject = new HomePageObject(driver);
+    public void beforeClass(String browserName) {
+        driver = getBrowserName(browserName);
+        homePageObject = PageGenerator.getHomePage(driver);
     }
 
     @Test
     public void TC_01_Register_Techpanda() {
 
-        homePageObject.openRegisterPage();
+        registerPageObject = homePageObject.openRegisterPage();
 
         //qua trang register
-        registerPageObject = new RegisterPageObject(driver);
         registerPageObject.enterFirstnameTextbox(firstname);
         registerPageObject.enterMiddlenameTextbox(middlename);
         registerPageObject.enterLastnameTextbox(lastname);
         registerPageObject.enterEmailTextbox(email_address);
         registerPageObject.enterPasswordTextbox(password);
         registerPageObject.enterConfirmPasswordTextbox(password);
-        registerPageObject.clickRegisterButon();
+        myAccountObject = registerPageObject.clickRegisterButon();
 
         //qua trang my account
-        myAccountObject = new MyAccountObject(driver);
         Assert.assertEquals(myAccountObject.getSuccessRegister(), "Thank you for registering with Main Website Store.");
         Assert.assertTrue(myAccountObject.getContactInfo().contains(fullname));
         Assert.assertTrue(myAccountObject.getContactInfo().contains(email_address));
@@ -63,10 +56,7 @@ public class User_01_Lv4_POM extends BaseTest {
     @Test
     public void TC_02_MyAccount() throws InterruptedException {
         myAccountObject.clickAccountLink();
-        myAccountObject.openMyAccountPage();
-        myAccountObject = new MyAccountObject(driver);
-
-
+        myAccountObject = myAccountObject.openMyAccountPage();
         Thread.sleep(3000);
     }
 

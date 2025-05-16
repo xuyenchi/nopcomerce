@@ -2,18 +2,16 @@ package com.nopcomerce.user;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
 import pageObjects.MyAccountObject;
 import pageObjects.RegisterPageObject;
 
-import java.time.Duration;
-
-public class User_01_Lv4_POM extends BaseTest {
+public class User_01_Lv6_Page_Factory extends BaseTest {
     WebDriver driver;
     private HomePageObject homePageObject;
     private RegisterPageObject registerPageObject;
@@ -25,14 +23,10 @@ public class User_01_Lv4_POM extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
-
-        driver = new EdgeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
-        //driver.get("https://demo.nopcommerce.com/");
-        driver.get("http://live.techpanda.org/");
+    public void beforeClass(String browserName) {
+        driver = getBrowserName(browserName);
         homePageObject = new HomePageObject(driver);
     }
 

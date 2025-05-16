@@ -2,11 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Run Test Nopcomerce">
 
-    <test name="Run on Chrome">
+    <test name="Run on Firfox">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
 
-            <class name="com.nopcomerce.user.User_01_Lv4_POM" />
+            <class name="com.nopcomerce.user.User_01_Lv8_Swicth_Page_Object" />
         </classes>
     </test>
+<!--    <test name="Run on Chrome">-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+<!--        <classes>-->
+
+<!--            <class name="com.nopcomerce.user.User_01_Lv5_Multiple_Browser" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite> <!-- Suite -->

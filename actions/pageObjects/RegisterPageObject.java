@@ -36,7 +36,8 @@ public class RegisterPageObject extends BasePage {
         senkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, key);
     }
 
-    public void clickRegisterButon() {
+    public MyAccountObject clickRegisterButon() {
         clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+        return PageGenerator.getMyAccountPage(driver);
     }
 }
