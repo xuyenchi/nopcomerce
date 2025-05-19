@@ -7,16 +7,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.HomePageObject;
-import pageObjects.MyAccountObject;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserMyAccountPO;
 import pageObjects.PageGenerator;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.UserRegisterPO;
 
 public class User_01_Lv7_Page_Generator extends BaseTest {
     WebDriver driver;
-    private HomePageObject homePageObject;
-    private RegisterPageObject registerPageObject;
-    private MyAccountObject myAccountObject;
+    private UserHomePO homePageObject;
+    private UserRegisterPO registerPageObject;
+    private UserMyAccountPO myAccountObject;
     String firstname = "Le";
     String middlename = "Ngoc";
     String lastname = "Xuyen";

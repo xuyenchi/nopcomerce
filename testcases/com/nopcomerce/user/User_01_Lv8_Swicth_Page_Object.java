@@ -8,14 +8,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.user.*;
 
 public class User_01_Lv8_Swicth_Page_Object extends BaseTest {
     WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private MyAccountObject myAccountPage;
-    private AddressBookPageObject addressBookPage;
-    private OrderPageObject orderPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserMyAccountPO myAccountPage;
+    private UserAddressBookPO addressBookPage;
+    private UserOrderPO orderPage;
     String firstname = "Le";
     String middlename = "Ngoc";
     String lastname = "Xuyen";

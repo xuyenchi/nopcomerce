@@ -30,5 +30,22 @@ public class BaseTest {
         driver.get("http://live.techpanda.org/");
         return driver;
     }
+    protected WebDriver getBrowserName(String browserName, String url){
+        BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+        switch (browserList){
+            case CHROME:
+                driver = new ChromeDriver();
+                break;
+            case FIREFOX:
+                driver = new FirefoxDriver();
+                break;
+            default:
+                throw new RuntimeException("Browser not valid");
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.get(url);
+        return driver;
+    }
 
 }

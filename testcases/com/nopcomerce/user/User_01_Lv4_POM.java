@@ -7,17 +7,17 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.HomePageObject;
-import pageObjects.MyAccountObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserMyAccountPO;
+import pageObjects.user.UserRegisterPO;
 
 import java.time.Duration;
 
 public class User_01_Lv4_POM extends BaseTest {
     WebDriver driver;
-    private HomePageObject homePageObject;
-    private RegisterPageObject registerPageObject;
-    private MyAccountObject myAccountObject;
+    private UserHomePO homePageObject;
+    private UserRegisterPO registerPageObject;
+    private UserMyAccountPO myAccountObject;
     String firstname = "Le";
     String middlename = "Ngoc";
     String lastname = "Xuyen";
@@ -33,7 +33,7 @@ public class User_01_Lv4_POM extends BaseTest {
         driver.manage().window().maximize();
         //driver.get("https://demo.nopcommerce.com/");
         driver.get("http://live.techpanda.org/");
-        homePageObject = new HomePageObject(driver);
+        homePageObject = new UserHomePO(driver);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class User_01_Lv4_POM extends BaseTest {
         homePageObject.openRegisterPage();
 
         //qua trang register
-        registerPageObject = new RegisterPageObject(driver);
+        registerPageObject = new UserRegisterPO(driver);
         registerPageObject.enterFirstnameTextbox(firstname);
         registerPageObject.enterMiddlenameTextbox(middlename);
         registerPageObject.enterLastnameTextbox(lastname);
@@ -52,7 +52,7 @@ public class User_01_Lv4_POM extends BaseTest {
         registerPageObject.clickRegisterButon();
 
         //qua trang my account
-        myAccountObject = new MyAccountObject(driver);
+        myAccountObject = new UserMyAccountPO(driver);
         Assert.assertEquals(myAccountObject.getSuccessRegister(), "Thank you for registering with Main Website Store.");
         Assert.assertTrue(myAccountObject.getContactInfo().contains(fullname));
         Assert.assertTrue(myAccountObject.getContactInfo().contains(email_address));
@@ -64,7 +64,7 @@ public class User_01_Lv4_POM extends BaseTest {
     public void TC_02_MyAccount() throws InterruptedException {
         myAccountObject.clickAccountLink();
         myAccountObject.openMyAccountPage();
-        myAccountObject = new MyAccountObject(driver);
+        myAccountObject = new UserMyAccountPO(driver);
 
 
         Thread.sleep(3000);

@@ -3,19 +3,17 @@ package commons;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.AddressBookPageObject;
-import pageObjects.MyAccountObject;
-import pageObjects.OrderPageObject;
+import pageObjects.user.UserAddressBookPO;
+import pageObjects.user.UserMyAccountPO;
+import pageObjects.user.UserOrderPO;
 import pageObjects.PageGenerator;
-import pageUIs.*;
+import pageUIs.user.UserSidebarPageUI;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 public class BasePage {
@@ -303,24 +301,27 @@ public class BasePage {
     public void waitForElementSelected(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
     }
-    public OrderPageObject openOrderPage(WebDriver driver) {
-        waitForElementClickable(driver, SidebarPageUI.ORDER_LINK);
-        clickToElement(driver, SidebarPageUI.ORDER_LINK);
-        return PageGenerator.getOrderPage(driver);
+    public UserOrderPO openOrderPage(WebDriver driver) {
+        waitForElementClickable(driver, UserSidebarPageUI.ORDER_LINK);
+        clickToElement(driver, UserSidebarPageUI.ORDER_LINK);
+        return PageGenerator.getUserOrderPage(driver);
     }
 
-    public AddressBookPageObject openAdressPage(WebDriver driver) {
-        waitForElementClickable(driver, SidebarPageUI.ADDRESS_BOOK_LINK);
-        clickToElement(driver, SidebarPageUI.ADDRESS_BOOK_LINK);
-        return PageGenerator.getAddressPage(driver);
+    public UserAddressBookPO openAdressPage(WebDriver driver) {
+        waitForElementClickable(driver, UserSidebarPageUI.ADDRESS_BOOK_LINK);
+        clickToElement(driver, UserSidebarPageUI.ADDRESS_BOOK_LINK);
+        return PageGenerator.getUserAddressPage(driver);
     }
 
-    public MyAccountObject openMyAccountPage(WebDriver driver) {
-        waitForElementClickable(driver, SidebarPageUI.MYACCOUNT_LINK);
-        clickToElement(driver, SidebarPageUI.MYACCOUNT_LINK);
-        return PageGenerator.getMyAccountPage(driver);
+    public UserMyAccountPO openMyAccountPage(WebDriver driver) {
+        waitForElementClickable(driver, UserSidebarPageUI.MYACCOUNT_LINK);
+        clickToElement(driver, UserSidebarPageUI.MYACCOUNT_LINK);
+        return PageGenerator.getUserMyAccountPage(driver);
     }
 
+    public void clearInput(WebDriver driver, String locator){
+        getElement(driver,locator).clear();
+    }
 
 
 }
