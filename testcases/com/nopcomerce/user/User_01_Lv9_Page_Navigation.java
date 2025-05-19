@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
 
-public class User_01_Lv8_Swicth_Page_Object extends BaseTest {
+public class User_01_Lv9_Page_Navigation extends BaseTest {
     WebDriver driver;
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
@@ -28,6 +28,7 @@ public class User_01_Lv8_Swicth_Page_Object extends BaseTest {
     public void beforeClass(String browserName) {
         driver = getBrowserName(browserName);
         homePage = PageGenerator.getHomePage(driver);
+
     }
 
     @Test

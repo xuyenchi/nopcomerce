@@ -5,9 +5,10 @@ import commons.BasePage;
 import pageUIs.AddressBookPageUI;
 import pageUIs.MyAccountUI;
 
-public class AddressBookPageObject extends BasePage {
+public class AddressBookPageObject extends SidebarPageObject {
     WebDriver driver;
     public AddressBookPageObject(WebDriver driver){
+        super(driver);
         this.driver = driver;
     }
 

@@ -11,10 +11,7 @@ import pageObjects.AddressBookPageObject;
 import pageObjects.MyAccountObject;
 import pageObjects.OrderPageObject;
 import pageObjects.PageGenerator;
-import pageUIs.AddressBookPageUI;
-import pageUIs.BasePageUI;
-import pageUIs.MyAccountUI;
-import pageUIs.OrderPageUI;
+import pageUIs.*;
 
 import java.time.Duration;
 import java.util.List;
@@ -306,24 +303,24 @@ public class BasePage {
     public void waitForElementSelected(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
     }
-
     public OrderPageObject openOrderPage(WebDriver driver) {
-        waitForElementClickable(driver, BasePageUI.ORDER_LINK);
-        clickToElement(driver, BasePageUI.ORDER_LINK);
+        waitForElementClickable(driver, SidebarPageUI.ORDER_LINK);
+        clickToElement(driver, SidebarPageUI.ORDER_LINK);
         return PageGenerator.getOrderPage(driver);
     }
 
     public AddressBookPageObject openAdressPage(WebDriver driver) {
-        waitForElementClickable(driver, BasePageUI.ADDRESS_BOOK_LINK);
-        clickToElement(driver, BasePageUI.ADDRESS_BOOK_LINK);
+        waitForElementClickable(driver, SidebarPageUI.ADDRESS_BOOK_LINK);
+        clickToElement(driver, SidebarPageUI.ADDRESS_BOOK_LINK);
         return PageGenerator.getAddressPage(driver);
     }
 
     public MyAccountObject openMyAccountPage(WebDriver driver) {
-        waitForElementClickable(driver, BasePageUI.MYACCOUNT_LINK);
-        clickToElement(driver, BasePageUI.MYACCOUNT_LINK);
+        waitForElementClickable(driver, SidebarPageUI.MYACCOUNT_LINK);
+        clickToElement(driver, SidebarPageUI.MYACCOUNT_LINK);
         return PageGenerator.getMyAccountPage(driver);
     }
+
 
 
 }

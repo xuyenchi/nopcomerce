@@ -5,10 +5,11 @@ import org.openqa.selenium.WebDriver;
 import pageUIs.AddressBookPageUI;
 import pageUIs.MyAccountUI;
 
-public class MyAccountObject extends BasePage {
+public class MyAccountObject extends SidebarPageObject {
     private WebDriver driver;
 
     public MyAccountObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

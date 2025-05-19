@@ -6,7 +6,7 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
 
-            <class name="com.nopcomerce.user.User_01_Lv8_Swicth_Page_Object" />
+            <class name="com.nopcomerce.user.User_01_Lv9_Page_Navigation" />
         </classes>
     </test>
 <!--    <test name="Run on Chrome">-->
