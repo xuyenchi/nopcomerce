@@ -1,6 +1,7 @@
 package com.nopcomerce.user;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -27,8 +28,8 @@ public class User_01_Lv10_Swicth_URL extends BaseTest {
     String email_address = "xuyen" + generateRandomNumber() + "@gmail.com";
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
-    String adminUser = "admin@yourstore.com";
-    String adminPass = "admin";
+    String adminUser = GlobalConstants.ADMIN_NOP_USERNAME;
+    String adminPass = GlobalConstants.ADMIN_NOP_PASS;
     private String userUrlValue, adminUrlValue;
 
     @Parameters({"browser", "userUrl", "adminUrl"})
