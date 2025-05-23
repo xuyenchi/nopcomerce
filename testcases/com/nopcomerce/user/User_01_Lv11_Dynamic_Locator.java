@@ -11,7 +11,7 @@ import pageObjects.nopcomerce.PageGenerator;
 import pageObjects.nopcomerce.user.*;
 import pageObjects.nopcomerce.user.*;
 
-public class User_01_Lv9_Page_Navigation extends BaseTest {
+public class User_01_Lv11_Dynamic_Locator extends BaseTest {
     WebDriver driver;
     private UserHomePO homePage;
     private UserRegisterPO registerPage;
@@ -63,14 +63,31 @@ public class User_01_Lv9_Page_Navigation extends BaseTest {
     }
 
     @Test
-    public void TC_03_Switch_Page(){
+    public void TC_03_Switch_Page() {
         //Myaccount -> Adrress
-        addressBookPage = myAccountPage.openAdressPage();
+        addressBookPage = (UserAddressBookPO) myAccountPage.openSidebarLinkByPageName("Address Book");
 
         //Adress -> Order
-        orderPage = addressBookPage.openOrderPage();
+        orderPage = (UserOrderPO) addressBookPage.openSidebarLinkByPageName("My Orders");
         // Order -> My account
-        myAccountPage = orderPage.openMyAccountPage();
+        myAccountPage = (UserMyAccountPO) orderPage.openSidebarLinkByPageName("Account Dashboard");
+        ;
+
+    }
+
+    @Test
+    public void TC_04_Switch_Page() {
+        //Myaccount -> Adrress
+        myAccountPage.openSidebarLinkByPageName("Address Book");
+        addressBookPage = PageGenerator.getUserAddressPage(driver);
+
+        //Adress -> Order
+        addressBookPage.openSidebarLinkByPageName("My Orders");
+        orderPage = PageGenerator.getUserOrderPage(driver);
+                // Order -> My account
+        orderPage.openSidebarLinkByPageName("Account Dashboard");
+        myAccountPage = PageGenerator.getUserMyAccountPage(driver);
+        ;
 
     }
 

@@ -1,9 +1,10 @@
-package pageObjects;
+package pageObjects.nopcomerce;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.admin.AdminDashboardPO;
-import pageObjects.admin.AdminLoginPO;
-import pageObjects.user.*;
+import pageObjects.nopcomerce.admin.AdminDashboardPO;
+import pageObjects.nopcomerce.admin.AdminLoginPO;
+import pageObjects.nopcomerce.user.*;
+import pageObjects.nopcomerce.*;
 
 public class PageGenerator {
     public static UserHomePO getHomePage(WebDriver driver){

@@ -1,8 +1,8 @@
-package pageObjects.user;
+package pageObjects.nopcomerce.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageObjects.PageGenerator;
+import pageObjects.nopcomerce.PageGenerator;
 import pageUIs.user.UserHomePageUI;
 
 public class UserHomePO extends BasePage {

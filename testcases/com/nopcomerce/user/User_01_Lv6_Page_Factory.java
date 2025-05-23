@@ -7,9 +7,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.user.UserHomePO;
-import pageObjects.user.UserMyAccountPO;
-import pageObjects.user.UserRegisterPO;
+import pageObjects.nopcomerce.user.UserHomePO;
+import pageObjects.nopcomerce.user.UserMyAccountPO;
+import pageObjects.nopcomerce.user.UserRegisterPO;
 
 public class User_01_Lv6_Page_Factory extends BaseTest {
     WebDriver driver;

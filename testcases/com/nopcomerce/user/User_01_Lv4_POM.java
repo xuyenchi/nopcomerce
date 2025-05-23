@@ -7,9 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.user.UserHomePO;
-import pageObjects.user.UserMyAccountPO;
-import pageObjects.user.UserRegisterPO;
+import pageObjects.nopcomerce.user.UserHomePO;
+import pageObjects.nopcomerce.user.UserMyAccountPO;
+import pageObjects.nopcomerce.user.UserRegisterPO;
 
 import java.time.Duration;
 

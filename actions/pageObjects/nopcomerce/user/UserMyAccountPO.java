@@ -1,7 +1,7 @@
-package pageObjects.user;
+package pageObjects.nopcomerce.user;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.PageGenerator;
+import pageObjects.nopcomerce.PageGenerator;
 import pageUIs.user.UserMyAccountUI;
 
 public class UserMyAccountPO extends UserSidebarPO {

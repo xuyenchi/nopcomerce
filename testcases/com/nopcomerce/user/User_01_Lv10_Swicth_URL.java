@@ -8,10 +8,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageObjects.admin.AdminDashboardPO;
-import pageObjects.admin.AdminLoginPO;
-import pageObjects.user.*;
+import pageObjects.nopcomerce.PageGenerator;
+import pageObjects.nopcomerce.admin.AdminDashboardPO;
+import pageObjects.nopcomerce.admin.AdminLoginPO;
+import pageObjects.nopcomerce.user.*;
+import pageObjects.nopcomerce.user.*;
 
 public class User_01_Lv10_Swicth_URL extends BaseTest {
     WebDriver driver;

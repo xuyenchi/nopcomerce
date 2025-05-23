@@ -1,4 +1,4 @@
-package pageObjects.user;
+package pageObjects.nopcomerce.user;
 
 import org.openqa.selenium.WebDriver;
 
