@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageUIs.jquery.HomePageUI;
+import pageUIs.user.BasePageUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,5 +97,22 @@ public class HomePO extends BasePage {
             allTextValue.add(element.getText());
         }
         return allTextValue;
+    }
+
+    public boolean isFileLoadSuccess(String fileName) {
+        return isElementDisplay(driver, BasePageUI.FILE_LOAD_SUCCESS, fileName);
+    }
+
+    public void clickUploadButton() throws InterruptedException {
+        List<WebElement> startButtons = getListElement(driver, BasePageUI.UPLOAD_BUTTON);
+        for(WebElement button : startButtons){
+            button.click();
+            Thread.sleep(2);
+        }
+
+    }
+
+    public boolean isFileUploaded(String fileName) {
+        return isElementDisplay(driver, BasePageUI.FILE_UPLOADED, fileName);
     }
 }

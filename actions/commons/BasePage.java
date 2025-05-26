@@ -10,6 +10,7 @@ import pageObjects.nopcomerce.user.UserAddressBookPO;
 import pageObjects.nopcomerce.user.UserMyAccountPO;
 import pageObjects.nopcomerce.user.UserOrderPO;
 import pageObjects.nopcomerce.PageGenerator;
+import pageUIs.user.BasePageUI;
 import pageUIs.user.UserSidebarPageUI;
 
 import java.time.Duration;
@@ -404,5 +405,15 @@ public class BasePage {
         getElement(driver,locator).clear();
     }
 
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames){
+        String filePath = GlobalConstants.UPLOAD_PATH;
+        String fullFileName = "";
+        for(String file : fileNames){
+            fullFileName = fullFileName + filePath + file + "\n";
+        }
+        fullFileName = fullFileName.trim();
+        getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
+
+    }
 
 }

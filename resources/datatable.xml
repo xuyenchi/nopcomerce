@@ -7,7 +7,7 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
 
-            <class name="com.nopcomerce.user.User_01_Lv12_Data_Table" />
+            <class name="com.jquery.User_01_Lv13_Upload" />
         </classes>
     </test>
 <!--    <test name=" Run on Chrome">-->

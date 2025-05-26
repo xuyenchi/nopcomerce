@@ -17,6 +17,7 @@ public class HomePageUI {
     public static final String DYNAMIC_ICON_BY_ROWINDEX = "xpath=//tr[%s]//button[contains(@title,'%s')]";
     public static final String DYNAMIC_PRECEDING_COLUMN2 ="xpath=//div[text()='%s']/ancestor::th/preceding-sibling::th";
     public static final String ALL_VALUE_COLUMNINDEX = "xpath=//td[%s]";
+    public static final String PAGE_TITLE_REGISTER = "xpath=//div[@class='page-title']/h1";
 
 
 }
