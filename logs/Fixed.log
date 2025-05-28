@@ -1,0 +1,13 @@
+[27-05-2025 10:23:41.302 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register
+[27-05-2025 10:23:41.306 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] -  TC01 Register Step 1 : Open register page
+[27-05-2025 10:23:42.956 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
+[27-05-2025 10:23:42.957 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user Firstname Le
+[27-05-2025 10:23:42.972 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user Middle name Ngoc
+[27-05-2025 10:23:42.984 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user lastname Xuyen
+[27-05-2025 10:23:42.994 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user email xuyen94562@gmail.com
+[27-05-2025 10:23:43.006 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user pass 123456
+[27-05-2025 10:23:43.019 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 2 : Enter user confirm pass 123456
+[27-05-2025 10:23:43.035 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - TC01 Register Step 3 : Click Register button 
+[27-05-2025 10:23:44.746 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
+[27-05-2025 10:23:44.752 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
+[27-05-2025 10:23:44.759 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------

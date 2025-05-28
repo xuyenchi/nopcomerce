@@ -23,6 +23,10 @@ public class User_01_Lv5_Multiple_Browser extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
+    public User_01_Lv5_Multiple_Browser() {
+        super();
+    }
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {

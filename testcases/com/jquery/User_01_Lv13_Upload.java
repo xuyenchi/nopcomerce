@@ -15,6 +15,10 @@ public class User_01_Lv13_Upload extends BaseTest {
     private HomePO homePage;
     private String danang, phuquoc, hcm;
 
+    public User_01_Lv13_Upload() {
+        super();
+    }
+
     @Parameters({"browser", "userUrl"})
     @BeforeClass
     public void beforeClass(String browserName, String url) {

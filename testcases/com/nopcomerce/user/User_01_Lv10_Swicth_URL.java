@@ -12,7 +12,6 @@ import pageObjects.nopcomerce.PageGenerator;
 import pageObjects.nopcomerce.admin.AdminDashboardPO;
 import pageObjects.nopcomerce.admin.AdminLoginPO;
 import pageObjects.nopcomerce.user.*;
-import pageObjects.nopcomerce.user.*;
 
 public class User_01_Lv10_Swicth_URL extends BaseTest {
     WebDriver driver;
@@ -32,6 +31,10 @@ public class User_01_Lv10_Swicth_URL extends BaseTest {
     String adminUser = GlobalConstants.ADMIN_NOP_USERNAME;
     String adminPass = GlobalConstants.ADMIN_NOP_PASS;
     private String userUrlValue, adminUrlValue;
+
+    public User_01_Lv10_Swicth_URL() {
+        super();
+    }
 
     @Parameters({"browser", "userUrl", "adminUrl"})
     @BeforeClass

@@ -1,5 +1,6 @@
 package com.nopcomerce.user;
 
+import com.aventstack.extentreports.Status;
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -9,8 +10,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.nopcomerce.PageGenerator;
 import pageObjects.nopcomerce.user.*;
+import reportConfigs.ExtentManager;
 
-public class User_01_Lv11_Dynamic_Locator extends BaseTest {
+import java.lang.reflect.Method;
+
+public class User_01_Lv16_ExtentReport extends BaseTest {
     WebDriver driver;
     private UserHomePO homePage;
     private UserRegisterPO registerPage;
@@ -24,7 +28,7 @@ public class User_01_Lv11_Dynamic_Locator extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
-    public User_01_Lv11_Dynamic_Locator() {
+    public User_01_Lv16_ExtentReport(){
         super();
     }
 
@@ -37,35 +41,50 @@ public class User_01_Lv11_Dynamic_Locator extends BaseTest {
     }
 
     @Test
-    public void TC_01_Register_Techpanda() {
-
+    public void TC_01_Register_Techpanda(Method method) {
+        ExtentManager.startTest(method.getName(), "TC 01 Register");
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register");
+        ExtentManager.getTest().log(Status.INFO," TC01 Register Step 1 : Open register page");
         registerPage = homePage.openRegisterPage();
-
+        Assert.assertEquals(homePage.getTextpageTitle(), "CREATE AN ACCOUNT");
         //qua trang register
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user Firstname " + firstname);
         registerPage.enterFirstnameTextbox(firstname);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user Middle name " + middlename);
         registerPage.enterMiddlenameTextbox(middlename);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user lastname " + lastname);
         registerPage.enterLastnameTextbox(lastname);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user email " + email_address);
         registerPage.enterEmailTextbox(email_address);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user pass " + password);
         registerPage.enterPasswordTextbox(password);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 2 : Enter user confirm pass " + password);
         registerPage.enterConfirmPasswordTextbox(password);
+
+        ExtentManager.getTest().log(Status.INFO,"TC01 Register Step 3 : Click Register button ");
         myAccountPage = registerPage.clickRegisterButon();
 
         //qua trang my account
-        Assert.assertEquals(myAccountPage.getSuccessRegister(), "Thank you for registering with Main Website Store.");
+        Assert.assertEquals(myAccountPage.getSuccessRegister(), "Thank you for registering with Main Website Store.000");
         Assert.assertTrue(myAccountPage.getContactInfo().contains(fullname));
         Assert.assertTrue(myAccountPage.getContactInfo().contains(email_address));
 
 
     }
 
-    @Test
+   // @Test
     public void TC_02_MyAccount() throws InterruptedException {
         myAccountPage.clickAccountLink();
         myAccountPage = myAccountPage.openMyAccountPage();
         Thread.sleep(3000);
     }
 
-    @Test
+   // @Test
     public void TC_03_Switch_Page() {
         //Myaccount -> Adrress
         addressBookPage = (UserAddressBookPO) myAccountPage.openSidebarLinkByPageName("Address Book");
@@ -78,7 +97,7 @@ public class User_01_Lv11_Dynamic_Locator extends BaseTest {
 
     }
 
-    @Test
+   // @Test
     public void TC_04_Switch_Page() {
         //Myaccount -> Adrress
         myAccountPage.openSidebarLinkByPageName("Address Book");

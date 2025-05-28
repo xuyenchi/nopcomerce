@@ -24,6 +24,10 @@ public class User_01_Lv7_Page_Generator extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
+    public User_01_Lv7_Page_Generator() {
+        super();
+    }
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {

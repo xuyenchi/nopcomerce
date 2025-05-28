@@ -25,6 +25,10 @@ public class User_01_Lv4_POM extends BaseTest {
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
 
+    public User_01_Lv4_POM() {
+        super();
+    }
+
     @BeforeClass
     public void beforeClass() {
 

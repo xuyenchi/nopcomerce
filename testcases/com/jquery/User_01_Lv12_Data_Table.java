@@ -9,11 +9,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.jquery.HomePO;
 import pageObjects.jquery.PageGenerator;
-import pageObjects.jquery.*;
 
 public class User_01_Lv12_Data_Table extends BaseTest {
     WebDriver driver;
     private HomePO homePage;
+
+    public User_01_Lv12_Data_Table() {
+        super();
+    }
 
     @Parameters({"browser", "userUrl"})
     @BeforeClass

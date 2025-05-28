@@ -2,7 +2,6 @@ package com.nopcomerce.user;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -23,6 +22,10 @@ public class User_01_Lv14_Assert_Verify extends BaseTest {
     String email_address = "xuyen" + generateRandomNumber() + "@gmail.com";
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
+
+    public User_01_Lv14_Assert_Verify() {
+        super();
+    }
 
     @Parameters("browser")
     @BeforeClass

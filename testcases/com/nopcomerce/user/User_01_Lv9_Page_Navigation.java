@@ -9,7 +9,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.nopcomerce.PageGenerator;
 import pageObjects.nopcomerce.user.*;
-import pageObjects.nopcomerce.user.*;
 
 public class User_01_Lv9_Page_Navigation extends BaseTest {
     WebDriver driver;
@@ -24,6 +23,10 @@ public class User_01_Lv9_Page_Navigation extends BaseTest {
     String email_address = "xuyen" + generateRandomNumber() + "@gmail.com";
     String password = "123456";
     String fullname = firstname + " " + middlename + " " + lastname;
+
+    public User_01_Lv9_Page_Navigation() {
+        super();
+    }
 
     @Parameters("browser")
     @BeforeClass

@@ -1,5 +1,8 @@
 package commons;
 
+
+import  org.apache.logging.log4j.LogManager;
+import  org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -7,15 +10,22 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import java.time.Duration;
-import java.util.Locale;
 import java.util.Random;
 
 public class BaseTest {
     WebDriver driver;
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public BaseTest() {
+        log = LogManager.getLogger(getClass());
+    }
 
     protected int generateRandomNumber() {
         return new Random().nextInt(99999);
     }
+    protected final Logger log;
 
     protected WebDriver getBrowserName(String browserName) {
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
@@ -61,9 +71,11 @@ public class BaseTest {
         boolean status = true;
         try {
             Assert.assertFalse(condition);
+            log.info("---------PASSED----------");
 
         } catch (Throwable e) {
             status = false;
+            log.info("----------FAILED-----------");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
 
@@ -76,9 +88,11 @@ public class BaseTest {
         boolean status = true;
         try {
             Assert.assertTrue(condition);
+            log.info("---------PASSED----------");
 
         } catch (Throwable e) {
             status = false;
+            log.info("---------FAILED----------");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
 
@@ -91,9 +105,11 @@ public class BaseTest {
         boolean status = true;
         try {
             Assert.assertEquals(actual, expected);
+            log.info("---------PASSED----------");
 
         } catch (Throwable e) {
             status = false;
+            log.info("---------FAILED----------");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
 
@@ -101,5 +117,6 @@ public class BaseTest {
         return status;
 
     }
+
 
 }
