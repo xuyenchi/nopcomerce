@@ -14,6 +14,7 @@
     <orderEntry type="library" name="selenium-testng" level="project" />
     <orderEntry type="library" name="commons-lang3-3.8.1" level="project" />
     <orderEntry type="library" name="log4j2" level="project" />
-    <orderEntry type="library" name="extent5" level="project" />
+    <orderEntry type="library" name="allure" level="project" />
+    <orderEntry type="library" name="extent" level="project" />
   </component>
 </module>

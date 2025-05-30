@@ -1,6 +1,7 @@
 package pageObjects.nopcomerce.user;
 
 import commons.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pageObjects.nopcomerce.PageGenerator;
 import pageUIs.jquery.HomePageUI;
@@ -11,6 +12,7 @@ public class UserHomePO extends BasePage {
     public UserHomePO(WebDriver driver){
         this.driver = driver;
     }
+    @Step("Open Register Page")
     public UserRegisterPO openRegisterPage() {
         waitForElementClickable(driver, UserHomePageUI.MYACCOUNT_LINK);
         clickToElement(driver, UserHomePageUI.MYACCOUNT_LINK);
