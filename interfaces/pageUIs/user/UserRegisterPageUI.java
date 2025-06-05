@@ -8,6 +8,7 @@ public class UserRegisterPageUI {
     public static final String PASSWORD_TEXTBOX = "xpath=//input[@id='password']";
     public static final String CONFIRM_PASSWORD_TEXTBOX = "xpath=//input[@id='confirmation']";
     public static final String REGISTER_BUTTON = "xpath=//span[text()='Register']";
-
+    public static final String TEXTBOX_BY_ID = "xpath=//input[@id='%s']";
+    public static final String BUTTON_BY_TEXT =  "xpath=//span[text()='%s']";
 
 }

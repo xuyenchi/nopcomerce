@@ -11,3 +11,5 @@
 [27-05-2025 10:23:44.746 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
 [27-05-2025 10:23:44.752 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
 [27-05-2025 10:23:44.759 INFO com.nopcomerce.user.User_01_Lv15_Log4j1] - ---------PASSED----------
+[04-06-2025 14:45:54.543 INFO com.nopcomerce.user.User_01_Lv18_Pattern_Object] - OS name = mac os x
+[04-06-2025 14:45:54.549 INFO com.nopcomerce.user.User_01_Lv18_Pattern_Object] - Driver instance name = firefoxdriver: firefox on mac (48083155-d2c5-400e-9b20-19a3461078e8)

@@ -11,6 +11,7 @@ import pageObjects.nopcomerce.user.UserMyAccountPO;
 import pageObjects.nopcomerce.user.UserOrderPO;
 import pageObjects.nopcomerce.PageGenerator;
 import pageUIs.user.BasePageUI;
+import pageUIs.user.UserRegisterPageUI;
 import pageUIs.user.UserSidebarPageUI;
 
 import java.time.Duration;
@@ -254,7 +255,23 @@ public class BasePage {
         return getElement(driver, castParameter(locator, restParameter)).isDisplayed();
 
     }
+    public void overideGlobalTimeout(WebDriver driver, long timeInSecond){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeInSecond));
+    }
+    public boolean isElementUnDisplayed(WebDriver driver, String locator, String... restParameter){
+        overideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+        List<WebElement> elements = getListElement(driver, castParameter(locator, restParameter));
+        overideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+        if(elements.size() == 0){
+            return true;
+        }else if (elements.size() > 0 && !elements.get(0).isDisplayed()){ //element present not display
+            return true;
+        }else { //element visible
+            return false;
+        }
 
+
+    }
 
     public boolean isElemenSelected(WebDriver driver, String locator) {
         return getElement(driver, locator).isSelected();
@@ -416,4 +433,12 @@ public class BasePage {
 
     }
 
+    public void enterTextboxByID(WebDriver driver, String textboxID, String value) {
+        senkeyToElement(driver, UserRegisterPageUI.TEXTBOX_BY_ID, value, textboxID);
+    }
+
+    public void clickToButtonByText(WebDriver driver, String buttonText) {
+        waitForElementClickable(driver, UserRegisterPageUI.BUTTON_BY_TEXT, buttonText);
+        clickToElement(driver, UserRegisterPageUI.BUTTON_BY_TEXT, buttonText);
+    }
 }

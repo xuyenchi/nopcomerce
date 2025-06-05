@@ -12,7 +12,7 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
 
-            <class name="com.nopcomerce.user.User_01_Lv17_AllureReport" />
+            <class name="com.nopcomerce.user.User_01_Lv18_Pattern_Object" />
         </classes>
     </test>
 <!--    <test name="Run on Chrome">-->
