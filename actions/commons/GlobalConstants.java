@@ -26,6 +26,8 @@ public class GlobalConstants {
     public static final String ADMIN_TECH_PASS = "guru99com";
     public static final String ADMIN_NOP_USERNAME = "admin@yourstore.com";
     public static final String ADMIN_NOP_PASS = "admin";
+    public static final String ADMIN_ORANGE_USERNAME = "Admin";
+    public static final String ADMIN_ORANGE_PASS = "admin123";
 
 
     //download/upload path

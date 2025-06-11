@@ -37,6 +37,7 @@ public class User_01_Lv18_Pattern_Object extends BaseTest {
         driver = getBrowserName(browserName);
         homePage = PageGenerator.getHomePage(driver);
 
+
     }
 
     @Description("Register new account")

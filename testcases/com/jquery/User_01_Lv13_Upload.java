@@ -40,6 +40,7 @@ public class User_01_Lv13_Upload extends BaseTest {
         homePage.uploadMultipleFiles(driver, danang);
         homePage.refreshCurrentPage(driver);
 
+
         //Upload nhiều file
         homePage.uploadMultipleFiles(driver, danang, phuquoc, hcm);
         homePage.sleepInSeconds(3);

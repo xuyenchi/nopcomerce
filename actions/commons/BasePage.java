@@ -6,10 +6,10 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.nopcomerce.PageGenerator;
 import pageObjects.nopcomerce.user.UserAddressBookPO;
 import pageObjects.nopcomerce.user.UserMyAccountPO;
 import pageObjects.nopcomerce.user.UserOrderPO;
-import pageObjects.nopcomerce.PageGenerator;
 import pageUIs.user.BasePageUI;
 import pageUIs.user.UserRegisterPageUI;
 import pageUIs.user.UserSidebarPageUI;
@@ -153,6 +153,7 @@ public class BasePage {
     }
 
     public void senkeyToElement(WebDriver driver, String locator, String key) {
+        clearInput(driver, locator);
         getElement(driver, locator).clear();
         getElement(driver, locator).sendKeys(key);
     }
@@ -196,7 +197,7 @@ public class BasePage {
     }
 
     public String getElementAtribute(WebDriver driver, String locator, String atributeName) {
-        return getElement(driver, locator).getDomAttribute(atributeName);
+        return getElement(driver, locator).getAttribute(atributeName);
     }
 
     public String getElementAtribute(WebDriver driver, String locator, String atributeName, String resParameter) {
@@ -276,6 +277,9 @@ public class BasePage {
     public boolean isElemenSelected(WebDriver driver, String locator) {
         return getElement(driver, locator).isSelected();
     }
+    public boolean isElemenSelected(WebDriver driver, String locator, String... restParameter) {
+        return getElement(driver, castParameter(locator,restParameter)).isSelected();
+    }
 
     public boolean isElemenEnable(WebDriver driver, String locator) {
         return getElement(driver, locator).isEnabled();
@@ -334,6 +338,11 @@ public class BasePage {
         sleepInSeconds(3);
     }
 
+    public void clickToElementByJS(WebDriver driver, String locator, String... restParameter) throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", getElement(driver, castParameter(locator, restParameter)));
+        sleepInSeconds(3);
+    }
+
     public void scrollToElementOnTopByJS(WebDriver driver, String locator) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getElement(driver, locator));
     }
@@ -387,6 +396,12 @@ public class BasePage {
                 .until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locator)));
     }
 
+    public boolean waitForListElementInvisible(WebDriver driver, String locator){
+        return new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT))
+                .until(ExpectedConditions.invisibilityOfAllElements(getListElement(driver, locator)));
+
+    }
+
     public void waitForElementClickable(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT))
                 .until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
@@ -400,6 +415,10 @@ public class BasePage {
     public void waitForElementSelected(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.elementToBeSelected(getByLocator(locator)));
     }
+    public void waitForElementSelected(WebDriver driver, String locator, String... restParameter) {
+        new WebDriverWait(driver, Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT)).until(ExpectedConditions.elementToBeSelected(getByLocator(castParameter(locator,restParameter))));
+    }
+
     public UserOrderPO openOrderPage(WebDriver driver) {
         waitForElementClickable(driver, UserSidebarPageUI.ORDER_LINK);
         clickToElement(driver, UserSidebarPageUI.ORDER_LINK);
@@ -441,4 +460,26 @@ public class BasePage {
         waitForElementClickable(driver, UserRegisterPageUI.BUTTON_BY_TEXT, buttonText);
         clickToElement(driver, UserRegisterPageUI.BUTTON_BY_TEXT, buttonText);
     }
+
+    public boolean waitAllIconLoadingInvisiblae(WebDriver driver) {
+        return waitForListElementInvisible(driver, BasePageUI.ICON_LOADING);
+    }
+
+    public Dimension getElementSize(WebDriver driver, String locator){
+        return getElement(driver, locator).getSize();
+    }
+    public boolean isSuccessMessageDisplayed(WebDriver driver) {
+        waitForElementVisible(driver, BasePageUI.SUCCESS_MESSAGE);
+        return isElementDisplay(driver, BasePageUI.SUCCESS_MESSAGE);
+    }
+
+    public void clearAttributeValue(WebDriver driver, String locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(
+                "arguments[0].value = '';" +
+                        "arguments[0].dispatchEvent(new Event('input', { bubbles: true }));",
+                getElement(driver, locator)
+        );
+    }
+
 }
